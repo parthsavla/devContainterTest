@@ -1,21 +1,44 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View,ScrollView,SafeAreaView, Button } from "react-native";
+import { Stack,useRouter } from "expo-router";
+import { useState } from "react";
+import {COLORS,icons,images,SIZES} from "../constants";
+import {ScreenHeaderBtn,Welcome,Popularjobs,Nearbyjobs} from "../components"
 
-export default function Page() {
+
+export default function Home() {
+  const router = useRouter();
+
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
-      </View>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Stack.Screen
+        options={{
+          headerStyle:{backgroundColor:COLORS.lightWhite},
+          headerShadowVisible:false,
+          headerLeft:()=>{
+            return(<ScreenHeaderBtn iconUrl={icons.share} dimension="60%"/>)
+          },
+          headerRight:()=>{
+            return(<ScreenHeaderBtn iconUrl={images.profile} dimension="100%"/>)
+          },
+          headerTitle:"",
+        }}>
+
+      </Stack.Screen>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{flex:1,padding:SIZES.medium}}>
+          <Welcome/>
+          <Popularjobs/>
+          <Nearbyjobs/>
+        </View>
+      </ScrollView> 
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    padding: 24,
+    backgroundColor: COLORS.lightWhite
   },
   main: {
     flex: 1,
