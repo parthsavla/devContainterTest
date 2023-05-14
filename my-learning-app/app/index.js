@@ -15,7 +15,7 @@ export default function Home() {
           headerStyle:{backgroundColor:COLORS.lightWhite},
           headerShadowVisible:false,
           headerLeft:()=>{
-            return(<ScreenHeaderBtn iconUrl={icons.share} dimension="60%"/>)
+            return(<ScreenHeaderBtn iconUrl={icons.menu} dimension="60%"/>)
           },
           headerRight:()=>{
             return(<ScreenHeaderBtn iconUrl={images.profile} dimension="100%"/>)
