@@ -5,11 +5,11 @@ import styles from './popularjobs.style'
 import { SIZES, COLORS } from '../../../constants'
 import PopularJobCard from '../../common/cards/popular/PopularJobCard'
 import { useRouter } from 'expo-router'
-import useFetch from  "../../../hook/useFetch"
+import useFetch from "../../../hook/useFetch"
 const Popularjobs = () => {
   const router = useRouter();
-  let {data,isLoading,error,reFetch} = useFetch(
-    'https://jsearch.p.rapidapi.com/search',{
+  let { data, isLoading, error, reFetch } = useFetch(
+    'search', {
     query: 'React',
     num_pages: '1'
   }
